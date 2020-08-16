@@ -267,13 +267,9 @@ tags: [theory]
 <hr/>
 ## 레퍼런스
 
-- https://st4nw.github.io/2019-09-02/kadr/
 - https://sunrinjuntae.tistory.com/124?category=732710
 - https://sunrinjuntae.tistory.com/125?category=732710
-- https://st4nw.github.io/2019-09-08/kernel3/
-- https://st4nw.github.io/2019-09-08/kernel2/
 - https://applemasterz17.tistory.com/230
 - https://defenit.kr/2019/10/18/Pwn/ㄴ WriteUps/CISCN-2017-babydriver-Write-Up-linux-kernel-UAF/
 - https://rajalo.tistory.com/entry/cpio-옵션
-- https://m.blog.naver.com/PostView.nhn?blogId=kjug1589&logNo=221598098507&categoryNo=0&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F
 
