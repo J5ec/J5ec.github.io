@@ -2,7 +2,7 @@
 layout: post
 title: 2017 codegate js world write up
 categories: Browser
-tags: [ctf, firefox]
+tags: [ctf, spidermonkey]
 ---
 
 ## 목차
