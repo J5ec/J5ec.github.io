@@ -39,15 +39,12 @@ tags: [theory]
 ---
 
 ## SpiderMonkey
-
 - 최초의 자바스크립트 엔진으로, JS의 창시자가 브라우저를 위해 개발
 - `FireFox`에서 사용
 - ![image](https://user-images.githubusercontent.com/43925259/66771031-11d34480-eef4-11e9-96fc-491076db5add.png)
 
 ---
-
 ## Chakra Core
-
 - 마이크로소프트가 개발한 엔진
 - `Edge` 브라우저에서 사용
 - ![image](https://user-images.githubusercontent.com/43925259/66771181-7a222600-eef4-11e9-9156-d4693f3d3fa6.png)
@@ -55,7 +52,6 @@ tags: [theory]
 ---
 
 ## JavaScript Core
-
 - 애플에서 WebKit 프레임워크를 위해 개발한 엔진
 - `Safari`와 React Native App에서 사용
 - ![image](https://user-images.githubusercontent.com/43925259/66771039-17c92580-eef4-11e9-8544-9ee9cebeb449.png)
@@ -63,7 +59,6 @@ tags: [theory]
 ---
 
 ## JS Engine 동작 과정
-
 ![image](https://user-images.githubusercontent.com/43925259/66770764-5ad6c900-eef3-11e9-9323-3cb60652df38.png)
 
 1. 자바스크립트 소스 작성
@@ -81,7 +76,6 @@ tags: [theory]
 - 자바스크립트 엔진마다 동작 과정에 차이가 있지만 위 과정은 공통이다.
 
 ### V8 동작 과정
-
 ![image](https://user-images.githubusercontent.com/43925259/66771378-0df3f200-eef5-11e9-9096-c0910b243a8e.png)
 
 - 그림 자체는 공통 그림과 별 차이가 없는데, 네이밍을 자동차 엔진처럼 해놨다.
@@ -173,60 +167,61 @@ tags: [theory]
   - `shift`
     - 배열 앞 부분 값 삭제
 
-    ```javascript
-    var arr = [1, 2, 3];
-    arr.shift();
-    #arr: [2, 3]
-    ```
+    	```javascript
+    	var arr = [1, 2, 3];
+    	arr.shift();
+    	#arr: [2, 3]
+    	```
 
   - `unshift`
     - 배열 앞 부분에 값 삽입
 
-    ```javascript
-    var arr = [1, 2, 3];
-    arr.unshift( 0 );
-    # [0, 1, 2, 3]
-    ```
+    	```javascript
+    	var arr = [1, 2, 3];
+    	arr.unshift( 0 );
+    	# [0, 1, 2, 3]
+    	```
 
   - `concat`
     - 다수의 배열을 합치고 병합한 배열의 사본 반환
 
-    ```javascript
-    var arr1 = [ 1, 2, 3 ];
-    var arr2 = [ 4, 5, 6 ];
-    var arr3 = arr2.concat( arr1 );
-    # [4, 5, 6, 1, 2, 3 ]
-    ```
+    	```javascript
+    	var arr1 = [ 1, 2, 3 ];
+   		var arr2 = [ 4, 5, 6 ];
+  	 	var arr3 = arr2.concat( arr1 );
+   		# [4, 5, 6, 1, 2, 3 ]
+  	  	```
 
   - `reverse`
     - 배열의 요소 순서를 거꾸로 변경
 
-    ```javascript
-    var arr =[1, 2, 3];
-    arr.reverse()
-    # [3, 2, 1]
-    ```
+    	```javascript
+    	var arr =[1, 2, 3];
+    	arr.reverse()
+   		# [3, 2, 1]
+    	```
 
   - `toString`
     - 배열 요소를 하나의 문자열로 합친다.
     - join 함수에 인자 안주고 실행하는 것과 결과 동일
 
-    ```javascript
-    var arr = [1, 2, 3];
-    arr.toString(); 
-    # 1,2,3
-    ```
+    	```javascript
+    	var arr = [1, 2, 3];
+    	arr.toString(); 
+    	# 1,2,3
+    	```
 
   - `join`
     - 배열 요소 전부를 하나의 문자열로 합친다.
 
-    ```javascript
-    var arr = [1, 2, 3];
-    arr.join(); 
-    # 1,2,3
+    	```javascript
+    	var arr = [1, 2, 3];
+    	arr.join(); 
+    	# 1,2,3
     
-    arr.join('@')
-    # 1@2@3
+    	arr.join('@')
+    	# 1@2@3
+		```
 
 ---
 
