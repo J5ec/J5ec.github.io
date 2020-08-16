@@ -12,6 +12,7 @@ tags: [CTF, firefox]
 - 데이터 읽기
 - Array 객체 분석
 - Exploit
+- 레퍼런스
 
 
 <hr/>

@@ -14,7 +14,7 @@ tags: [theory]
 - kernel mode -> user mode
 - 주어지는 파일
 - 기타
-
+- 레퍼런스
 
 
 <hr/>
