@@ -17,8 +17,8 @@ permalink: /about/
 
 ## 🏆Awards
 - 2020
-  - **DEF CON CTF Final 2020** 12th place - <span style="color:blue">koreanbadass</span>
-  - **HacktivityCon CTF 2020** 5th place - <span style="color:blue">Defenit
+  - **DEF CON CTF Final 2020** 12th place - <span style="color:teal">koreanbadass</span>
+  - **HacktivityCon CTF 2020** 5th place - <span style="color:teal">Defenit
   - **CyBRICS CTF 2020** 2nd place - <span style="color:blue">DefenitelyZer0
   - **TSG CTF 2020** 2nd place - <span style="color:blue">DefenitelyZer0
   - **ASIS CTF Quals 2020** 2nd place - <span style="color:blue">DefenitelyZer0
