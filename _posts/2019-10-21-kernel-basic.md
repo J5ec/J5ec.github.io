@@ -18,29 +18,29 @@ tags: [theory]
 <hr/>
 ## 커널 보호기법
 
-- ###`KASLR` (Kernel Address Space Layout Randomization)
+###`KASLR` (Kernel Address Space Layout Randomization)
 
   - **커널의 메모리 주소를 랜덤화** 시킨다.
 
-- ###`SMEP` (Supervisor Mode Execution Protection)
+###`SMEP` (Supervisor Mode Execution Protection)
 
   - **유저 영역의 주소 공간에서 커널의 코드를 실행을 방지**한다.
 
-- ###`SMAP` (Supervisor Mode Access Protection)
+###`SMAP` (Supervisor Mode Access Protection)
 
   - **유저 영역의 주소 공간에서 메모리 접근을 비허용**한다.
 
-- ###`KADR` (Kernel Address Display Restriction)
+###`KADR` (Kernel Address Display Restriction)
 
   - **비 루트 사용자가 커널 주소의 정보를 얻는 것을 제한**한다.
 
   - 모든 커널 심볼이 저장된 `/proc/kallsyms`파일의 심볼 주소가 0으로 표시된다.
 
-- ###`KPRI` (Kernel Page Table Isolation)
+###`KPRI` (Kernel Page Table Isolation)
 
   - **유저 공간에서 커널 공간의 데이터 획득을 막기 위해 page를 따로 사용하는 것**
 
-- ###`canary`
+###`canary`
 
   - **모듈에 카나리가 있을 경우 BOF를 방지**한다.
 
@@ -49,19 +49,19 @@ tags: [theory]
 <hr/>
 ## 리눅스 커널 모듈 - 명령어
 
-- ###`lsmod`
+###`lsmod`
 
   - **실행중인 모듈 리스트**를 확인할 때 사용
 
-- ###`insmod` [모듈 명]
+###`insmod` [모듈 명]
 
   - **커널에 모듈 삽입**할 때 사용
 
-- ###`modinfo` [모듈 명]
+###`modinfo` [모듈 명]
 
   - **모듈 정보**를 볼 때 사용
 
-- ###`rmmood` [모듈 명]
+###`rmmood` [모듈 명]
 
   - **모듈을 삭제**할 때 사용
 
@@ -70,17 +70,17 @@ tags: [theory]
 <hr/>
 ## 리눅스 커널 모듈 - 함수
 
-- ###`module_init`
+###`module_init`
 
   - **모듈을 적재할 때 실행**하는 함수
 
   - 성공하면 0을 반환
 
-- ###`module_exit`
+###`module_exit`
 
   - **모듈을 삭제할 때 실행**되는 함수
 
-- ###`printk`
+###`printk`
 
   - `printf`와 비슷한 함수
 
@@ -88,19 +88,19 @@ tags: [theory]
 
   - `dmesg` 명령이나 `/var/log/messages` 또는 `/var/log/kern.log` 파일에서 확인 가능
 
-- ###`kmalloc`
+###`kmalloc`
 
   - `malloc`과 비슷한 함수
 
   - kmalloc는 `ptmalloc2`가 아닌 `slab allocator`를 통해 메모리를 할당
 
-- ###`kfree`
+###`kfree`
 
   - `free`와 비슷한 함수
 
   - kfree는 `ptmalloc2`가 아닌 `slab allocator`를 통해 메모리를 해제
 
-- ###`copy_from_user`
+###`copy_from_user`
 
   - `memcpy`와 비슷한 함수
 
@@ -108,7 +108,7 @@ tags: [theory]
 
   - **정상적으로 수행했으면 0을 반환**한다. (아니라면 복사되지 않은 바이트 수)
 
-- ###`copy_to_user`
+###`copy_to_user`
 
   - `memcpy`와 비슷한 함수
 
@@ -116,7 +116,7 @@ tags: [theory]
 
   - **정상적으로 수행했으면 0을 반환**한다. (아니라면 복사되지 않은 바이트 수)
 
-- ###`prepare_kernel_cred`
+###`prepare_kernel_cred`
 
   - **새로운 cred 구조체를 생성**하는 함수
 
@@ -126,7 +126,7 @@ tags: [theory]
   >
   > 커널은 현재 프로세스의 권한 정보를 cred라는 구조체에 저장하는데, uid, gid 등 여러가지 정보를 담고 있음
 
-- ###`commit_creds`
+###`commit_creds`
 
   -> 인자로 cred 구조체를 넘겨주면 새로운 권한을 적용한다.
 
@@ -154,13 +154,13 @@ tags: [theory]
 
 기본적으로 CTF Kernel 문제에서 제공되는 파일은 다음과 같다. (보통 bzImage, cpio, sh 파일이 주어짐)
 
-- ###`bzImage`
+###`bzImage`
 
   - **압축된 커널 이미지로 부팅시 사용**한다.
 
   - **해당 파일을 이용해서 vmlinux 파일을 추출** 가능하다.
 
-- ###`cpio`
+###`cpio`
 
   - **file system을 압축시켜놓은 파일**이다.
 
@@ -168,15 +168,15 @@ tags: [theory]
 
   - **cpio 파일에서 ko 파일을 얻을 수 있다.**
 
-- ###`sh`
+###`sh`
 
   - **qemu의 실행 옵션이 들어있는 셸 스크립트 파일**이다.
 
-- ###`ko`
+###`ko`
 
   - **모듈 파일로서 IDA를 이용해서 분석**해야 하는 파일이다.
 
-- ###`vmlinux`
+###`vmlinux`
 
   - **커널 컴파일 시 생성되는 이미지 파일**이다.
 
@@ -218,11 +218,11 @@ tags: [theory]
   ```
 
 
-  ​	-> i: 압축 해제
+  ​	- i: 압축 해제
 
-  ​	-> d: 없는 디렉토리 생성
+  ​	- d: 없는 디렉토리 생성
 
-  ​	-> m: 변경시간 유지
+  ​	- m: 변경시간 유지
 
 - **ko 파일은 압축해제해서 나온 file system의 루트 디렉토리 또는 lib 디렉토리 내부에 존재**한다.
 
@@ -235,9 +235,9 @@ tags: [theory]
 
 - -s 옵션이 없을 경우 추가
 
-  -> **1234번 포트로 연결을 기다리는 옵션**
+  - **1234번 포트로 연결을 기다리는 옵션**
 
-  -> p 옵션으로 원하는 포트 지정도 가능
+  - p 옵션으로 원하는 포트 지정도 가능
 
 
 
