@@ -19,25 +19,25 @@ permalink: /about/
 
 ## 🏆Awards
 - 2020
-  - **DEF CON CTF Final 2020** 12th place - <span style="color:teal">koreanbadass</span>
-  - **HacktivityCon CTF 2020** 5th place - <span style="color:teal">Defenit
-  - **CyBRICS CTF 2020** 2nd place - <span style="color:teal">DefenitelyZer0
-  - **TSG CTF 2020** 2nd place - <span style="color:teal">DefenitelyZer0
-  - **ASIS CTF Quals 2020** 2nd place - <span style="color:teal">DefenitelyZer0
-  - **DEF CON CTF Qualifier 2020** 7th place - <span style="color:teal">koreanbadass
-  - **PlaidCTF 2020** 4th place - <span style="color:teal">koreanbadass
-  - **Securinets CTF Quals 2020** 2nd place - <span style="color:teal">Defenit
-  - **riftCTF 2020** 3rd place - <span style="color:teal">Defenit
-  - **CONFidence CTF Teaser 2020** <span style="color:red">1st place</span> - <span style="color:teal">DDP
-  - **BauCTF Winter Quals 2020** <span style="color:red">1st place</span> - <span style="color:teal">Defenit
-  - **NEWSECU CHALLENGE 2020** 3rd place - <span style="color:teal">Defenit
+  - **DEF CON CTF Final 2020** 12th place - <span style="color:#a29bfe">koreanbadass</span>
+  - **HacktivityCon CTF 2020** 5th place - <span style="color:#a29bfe">Defenit
+  - **CyBRICS CTF 2020** 2nd place - <span style="color:#a29bfe">DefenitelyZer0
+  - **TSG CTF 2020** 2nd place - <span style="color:#a29bfe">DefenitelyZer0
+  - **ASIS CTF Quals 2020** 2nd place - <span style="color:#a29bfe">DefenitelyZer0
+  - **DEF CON CTF Qualifier 2020** 7th place - <span style="color:#a29bfe">koreanbadass
+  - **PlaidCTF 2020** 4th place - <span style="color:#a29bfe">koreanbadass
+  - **Securinets CTF Quals 2020** 2nd place - <span style="color:#a29bfe">Defenit
+  - **riftCTF 2020** 3rd place - <span style="color:#a29bfe">Defenit
+  - **CONFidence CTF Teaser 2020** <span style="color:red">1st place</span> - <span style="color:#a29bfe">DDP
+  - **BauCTF Winter Quals 2020** <span style="color:red">1st place</span> - <span style="color:#a29bfe">Defenit
+  - **NEWSECU CHALLENGE 2020** 3rd place - <span style="color:#a29bfe">Defenit
 - 2019
-  - **Christmas CTF 2019** 2nd place - <span style="color:teal">AntiPPP
-  - **UTC-CTF Teaser 2019** <span style="color:red">1st place</span> - <span style="color:teal">Defenit
-  - **CCE Final 2019** 10th place - <span style="color:teal">Defenit
-  - **SECCON Online CTF 2019** 10th place - <span style="color:teal">SEDefenit
-  - **Rooters CTF 2019** <span style="color:red">1st place </span>- <span style="color:teal">Defenit
-  - **CCE Quals 2019** 10th place - <span style="color:teal">Defenit
-  - **Holy Shield CTF 2019** 2nd place - <span style="color:teal">Defenit
-  - **SSTF Open CTF 2019** 2nd place - <span style="color:teal">Defenit
-  - **SUA CTF 2019** 2nd place - <span style="color:#74b9ff">Defenit
+  - **Christmas CTF 2019** 2nd place - <span style="color:#a29bfe">AntiPPP
+  - **UTC-CTF Teaser 2019** <span style="color:red">1st place</span> - <span style="color:#a29bfe">Defenit
+  - **CCE Final 2019** 10th place - <span style="color:#a29bfe">Defenit
+  - **SECCON Online CTF 2019** 10th place - <span style="color:#a29bfe">SEDefenit
+  - **Rooters CTF 2019** <span style="color:red">1st place </span>- <span style="color:#a29bfe">Defenit
+  - **CCE Quals 2019** 10th place - <span style="color:#a29bfe">Defenit
+  - **Holy Shield CTF 2019** 2nd place - <span style="color:#a29bfe">Defenit
+  - **SSTF Open CTF 2019** 2nd place - <span style="color:#a29bfe">Defenit
+  - **SUA CTF 2019** 2nd place - <span style="color:#a29bfe">Defenit
