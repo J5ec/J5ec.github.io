@@ -4,8 +4,10 @@ title: About
 permalink: /about/
 ---
 ## 🔎Info
-- <span style="color:blue">Name</span>: Joonwon Yoon (JSec)
-- <span style="color:blue">Nation</span>: South Korea
+- <span style="color:blue">Name
+  - Joonwon Yoon (JSec)
+- <span style="color:blue">Nation
+  - South Korea
 - <span style="color:blue">Affiliation
   - **Defenit** (Leader)
   - **Hayyim Security** (Researcher)
