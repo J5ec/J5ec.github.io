@@ -419,7 +419,7 @@ ul.post-categories {
 // About font sizes for h1-h6, refer to https://stackoverflow.com/a/6140504/13261366
 .post-title,
 .post-content h1 {
-  font-family: $display-font-family;
+  font-family: $base-font-family;
   @include relative-font-size(1.8);
   font-weight: bold;
   letter-spacing: -1px;
@@ -438,8 +438,8 @@ ul.post-categories {
     font-family: $base-font-family;
   }
 
-  h2     { margin-top: $spacing-unit * 2 }
-  h3, h4 { margin-top: $spacing-unit * 1.5 }
+  h2     { margin-top: $spacing-unit }
+  h3, h4 { margin-top: $spacing-unit }
   h5, h6 { margin-top: $spacing-unit }
 
   h2 {
