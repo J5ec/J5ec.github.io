@@ -1,4 +1,5 @@
 ---
+layout: post
 title: [번역] play-with-spidermonkey
 categories: Browser
 tags: [theory, firefox]
