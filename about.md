@@ -5,9 +5,9 @@ permalink: /about/
 ---
 ## 🔎Info
 - <span style="color:blue">Name
-  - Joonwon Yoon (JSec)
+  - **Joonwon Yoon (JSec)**
 - <span style="color:blue">Nation
-  - South Korea
+  - **South Korea**
 - <span style="color:blue">Affiliation
   - **Defenit** (Leader)
   - **Hayyim Security** (Researcher)
@@ -40,4 +40,4 @@ permalink: /about/
   - **CCE Quals 2019** 10th place - <span style="color:teal">Defenit
   - **Holy Shield CTF 2019** 2nd place - <span style="color:teal">Defenit
   - **SSTF Open CTF 2019** 2nd place - <span style="color:teal">Defenit
-  - **SUA CTF 2019** 2nd place - <span style="color:teal">Defenit`
+  - **SUA CTF 2019** 2nd place - <div style="color: #008000;">Defenit</div>
