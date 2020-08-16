@@ -4,14 +4,14 @@ title: About
 permalink: /about/
 ---
 ## 🔎Info
-- <span style="color:#d8e9ef">Name
+- <span style="color:#6c5ce7">Name
   - **Joonwon Yoon (JSec)**
-- <span style="color:#d8e9ef">Nation
+- <span style="color:#6c5ce7">Nation
   - **South Korea**
-- <span style="color:#d8e9ef">Affiliation
+- <span style="color:#6c5ce7">Affiliation
   - **Defenit** (Leader)
   - **Hayyim Security** (Researcher)
-- <span style="color:#d8e9ef">SNS
+- <span style="color:#6c5ce7">SNS
   - [facebook](https://www.facebook.com/yjw.sz/)
   - [twitter](https://twitter.com/jsec_)
 
