@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 2017 codegate js world write up
 categories: Browser
 tags: [CTF, firefox]

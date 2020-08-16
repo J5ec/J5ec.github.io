@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Kernel Basic
 categories: Kernel
 tags: [theory]
