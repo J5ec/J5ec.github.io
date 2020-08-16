@@ -4,7 +4,7 @@ categories: Browser
 tags: [theory, firefox]
 ---
 
-# 목차
+## 목차
 
 - Representing Values
   - JSValue
@@ -15,9 +15,9 @@ tags: [theory, firefox]
 - Typed Array
 - References
 
-# Representing Values
+## Representing Values
 
-## JS Value
+### JS Value
 
 자바 스크립트는 "type"을 정의하지 않고 변수에 값을 할당할 수 있다.  그렇다면 자바스크립트는 변수의 type을 어떻게 추적할 수 있을까?
 
@@ -104,7 +104,7 @@ type은 `JSValueType`에 표시된 숫자와  `JSVAL_TAG_MAX_DOUBLE`의 값인 0
 (1 | 0x1FFF0) << 47 = 0xfff8800000000000
 ```
 
-## JSObject
+### JSObject
 
 자바스크립트는 배열과 같은 다양한 type의 object도 가지고 있다.  object는 "property"를 가지고 있다.
 
@@ -126,7 +126,7 @@ class NativeObject
 };
 ```
 
-### group_
+#### group_
 
 `js/src/vm/JSObject.h`에는 다음과 같은 주석이 있다.
 
@@ -196,7 +196,7 @@ struct MOZ_STATIC_CLASS ClassOps
 
 따라서 aaw가 있다면 프로그램 흐름 변조를 할 수 있는 수단이 여기에 있고 이는 나중에 쓸모 있을 것이다.
 
-### shape_ and slots_
+#### shape_ and slots_
 
 자바스크립트는 object의 property를 어떻게 알 수 있을까?  다음의 예시를 보자.
 
@@ -214,7 +214,7 @@ slots_ 필드는 각 property에 대한 값을 포함하는 필드이다. 기본
 
 ![Untitled](https://user-images.githubusercontent.com/43925259/90337063-f4db3680-e01a-11ea-8227-b61b3929d03b.png)
 
-### elements_
+#### elements_
 
 이전 섹션에서 살펴본 예제에서는 object는 몇가지 property를 가지고 있을 뿐이었다. 이제 element를 추가해볼 것이다. 다음의 코드를 기존의 코드에 추가하자.
 
@@ -249,7 +249,7 @@ uint32_t length;
 
 위의 코드는 NativeObject.h의 ObjectElements 정의에 있다.  elements_의 시작 주소로부터 0x10을 뺀 영역에 순서대로 flags, init_len, capacity, length가 존재한다.
 
-# Typed Array
+## Typed Array
 
 다음은 MDN 페이지의 내용이다.
 
@@ -291,6 +291,6 @@ uint16view[1].toString(16)
 
 Typed Array는 임의의 위치에서 데이터를 읽고 쓰는 것이 필요할 때 매우 유용하다. ArrayBuffer의 데이터 포인터를 제어할 수 있다면 Uint32Array를 할당하여 임의의 위치에서 한 번에 4바이트를 읽고 쓸 수 있다. 대신에 일반 배열을 사용한다면 임의의 위치에서 읽은 데이터는 float일 것이고 데이터를 쓰기 위해 페이로드를 int 대신 float로 작성해야 한다.
 
-# References
+## References
 
 https://vigneshsrao.github.io/play-with-spidermonkey/
