@@ -3,7 +3,7 @@ layout: page
 title: About
 permalink: /about/
 ---
-# 🔎Info
+## 🔎Info
 - `Name`: Joonwon Yoon (JSec)
 - `Nation`: South Korea
 - `Affiliation`
@@ -15,7 +15,7 @@ permalink: /about/
 
 ---
 
-# 🏆Awards
+## 🏆Awards
 - 2020
   - **DEF CON CTF Final 2020** 12th place - `koreanbadass`
   - **HacktivityCon CTF 2020** 5th place - `Defenit`
