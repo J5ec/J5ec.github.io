@@ -63,7 +63,7 @@ mozjs-24.2.0/js/src/js_array.cpp
 
 ![1](https://user-images.githubusercontent.com/43925259/67089040-a635f380-f1e1-11e9-9e83-cb559cb167a7.PNG)
 
-빨간색 부분이 변한 부분이다.  Array는 인덱스와 길이 정보를 가진다. ([참고]([https://defenit.kr/2019/10/15/Pwn/%E3%84%B4%20Research/JSE_%EA%B8%B0%EB%B3%B8_%EA%B0%9C%EB%85%90/](https://defenit.kr/2019/10/15/Pwn/ㄴ Research/JSE_기본_개념/)))
+빨간색 부분이 변한 부분이다.  Array는 인덱스와 길이 정보를 가진다. 
 
 
 
