@@ -21,7 +21,6 @@ tags: [theory]
   - Array 특징
   - Array 함수
 - 레퍼런스
-- 문서 역사
 
 ---
 
@@ -186,19 +185,19 @@ tags: [theory]
     - 다수의 배열을 합치고 병합한 배열의 사본 반환
 
     	```javascript
-		var arr1 = [ 1, 2, 3 ];
-		var arr2 = [ 4, 5, 6 ];
-		var arr3 = arr2.concat( arr1 );
-		# arr3: [4, 5, 6, 1, 2, 3 ]
-  	    ```
+    	var arr1 = [1, 2, 3];
+    	var arr2 = [4, 5, 6];
+    	var arr3 = arr2.concat(arr1);
+    	# arr3: [4, 5, 6, 1, 2, 3]
+    	```
 
   - `reverse`
     - 배열의 요소 순서를 거꾸로 변경
 
     	```javascript
-    	var arr =[1, 2, 3];
+    	var arr = [1, 2, 3];
     	arr.reverse();
-   		# arr: [3, 2, 1]
+    	# arr: [3, 2, 1]
     	```
 
   - `toString`
