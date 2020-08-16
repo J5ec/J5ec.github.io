@@ -443,6 +443,7 @@ ul.post-categories {
   h5, h6 { margin-top: $spacing-unit }
 
   h2 {
+    margin-bottom: 0;
     @include relative-font-size(1.4);
 
     @media screen and (min-width: $on-large) {
@@ -451,6 +452,7 @@ ul.post-categories {
   }
 
   h3 {
+    margin-bottom: 0;
     @include relative-font-size(1.17);
   }
 
