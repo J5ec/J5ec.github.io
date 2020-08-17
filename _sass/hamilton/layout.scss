@@ -309,10 +309,10 @@ ul.social-icons {
     padding-top: $spacing-unit / 2;
     padding-bottom: $spacing-unit / 2;
     border-bottom: 1px solid;
-    margin-bottom: 0;
+    margin-bottom: 1;
 
     h2 {
-  	  margin-bottom: 0;
+  	  margin-bottom: 1;
       @include relative-font-size(1.4);
 
       @media screen and (min-width: $on-large) {
@@ -438,7 +438,7 @@ ul.post-categories {
   margin-bottom: 0;
 
   h2, h3, h4, h5, h6 {
-    margin-bottom: 0;
+    margin-bottom: 1;
     font-family: $base-font-family;
   }
 
@@ -447,7 +447,7 @@ ul.post-categories {
   h5, h6 { margin-top: $spacing-unit }
 
   h2 {
-  	margin-bottom: 0;
+  	margin-bottom: 1;
     @include relative-font-size(1.4);
 
     @media screen and (min-width: $on-large) {
