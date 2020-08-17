@@ -436,6 +436,10 @@ ul.post-categories {
   font-family: $reading-font-family;
   margin-bottom: $spacing-unit / 2;
 
+  li {
+  	margin-bottom: $spacing-unit / 2;
+  }
+
   h2, h3, h4, h5, h6 {
     margin-bottom: $spacing-unit / 2;
     font-family: $base-font-family;
