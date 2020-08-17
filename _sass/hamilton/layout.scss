@@ -183,7 +183,7 @@
   display: grid;
   grid-template-columns: calc(#{$content-width} * 0.22) 1fr;
   overflow: hidden;
-  line-height: 2.0
+  line-height: 200%;
 
   @include media-query($on-medium) {
     grid-template-columns: calc(#{$content-width} * 0.15) 1fr;
@@ -303,6 +303,7 @@ ul.social-icons {
   margin-left: 0;
   padding-left: 0;
   list-style: none;
+  line-height: 200%;
 
   li {
     padding-top: $spacing-unit / 2;
