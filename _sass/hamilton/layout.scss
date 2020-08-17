@@ -107,6 +107,7 @@
       display: inline;
       padding: 5px 10px;
       margin-left: auto;
+	  margin-bottom: $spacing-unit / 2;
     }
 
     .dropdown-content {
@@ -309,10 +310,10 @@ ul.social-icons {
     padding-top: $spacing-unit / 2;
     padding-bottom: $spacing-unit / 2;
     border-bottom: 1px solid;
-    margin-bottom: 1;
+    margin-bottom: $spacing-unit / 2
 
     h2 {
-  	  margin-bottom: $spacing-unit / 2
+  	  margin-bottom: $spacing-unit / 2;
       @include relative-font-size(1.4);
 
       @media screen and (min-width: $on-large) {
@@ -438,7 +439,7 @@ ul.post-categories {
   margin-bottom: 0;
 
   h2, h3, h4, h5, h6 {
-    margin-bottom: $spacing-unit / 2
+    margin-bottom: $spacing-unit / 2;
     font-family: $base-font-family;
   }
 
@@ -447,7 +448,7 @@ ul.post-categories {
   h5, h6 { margin-top: $spacing-unit }
 
   h2 {
-  	margin-bottom: $spacing-unit / 2
+  	margin-bottom: $spacing-unit / 2;
     @include relative-font-size(1.4);
 
     @media screen and (min-width: $on-large) {
