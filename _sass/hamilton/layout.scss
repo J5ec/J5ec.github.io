@@ -313,7 +313,6 @@ ul.social-icons {
     margin-bottom: $spacing-unit / 2
 
     h2 {
-  	  margin-bottom: $spacing-unit / 2;
       @include relative-font-size(1.4);
 
       @media screen and (min-width: $on-large) {
