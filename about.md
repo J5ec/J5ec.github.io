@@ -11,14 +11,16 @@ permalink: /about/
 - <span style="color:#6c5ce7">**Affiliation**
   - **Defenit** (Leader)
   - **Hayyim Security** (Researcher)
-- <span style="color:#6c5ce7">**SNS**
+- <span style="color:#6c5ce7">**Site**
   - [facebook](https://www.facebook.com/yjw.sz/)
   - [twitter](https://twitter.com/jsec_)
+  - [naver-blog](https://blog.naver.com/yjw_sz)
 
 ---
 
 ## 🏆Awards
 - 2020
+  - **Hackers Playground 2020** 4th place - <span style="color:#4ea1d3">Haim&Defenit</span>
   - **DEF CON CTF Final 2020** 12th place - <span style="color:#4ea1d3">koreanbadass</span>
   - **HacktivityCon CTF 2020** 5th place - <span style="color:#4ea1d3">Defenit
   - **CyBRICS CTF 2020** 2nd place - <span style="color:#4ea1d3">DefenitelyZer0
