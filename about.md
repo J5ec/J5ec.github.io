@@ -43,3 +43,5 @@ permalink: /about/
   - **Holy Shield CTF 2019** 2nd place - <span style="color:#4ea1d3">Defenit
   - **SSTF Open CTF 2019** 2nd place - <span style="color:#4ea1d3">Defenit
   - **SUA CTF 2019** 2nd place - <span style="color:#4ea1d3">Defenit
+  - **20th Hackingcamp** <span style="color:#e85a71">Best Hacker
+  - **19th Hackingcamp** Sincere Hacker
