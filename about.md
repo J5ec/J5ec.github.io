@@ -20,6 +20,7 @@ permalink: /about/
 
 ## 🏆Awards
 - 2020
+  - **InterKosenCTF 2020** 2nd place - <span style="color:#4ea1d3">Defenit</span>
   - **Hackers Playground 2020** 4th place - <span style="color:#4ea1d3">Haim&Defenit</span>
   - **DEF CON CTF Final 2020** 12th place - <span style="color:#4ea1d3">koreanbadass</span>
   - **HacktivityCon CTF 2020** 5th place - <span style="color:#4ea1d3">Defenit
