@@ -37,10 +37,10 @@ permalink: /about/
 - 2019
   - **Christmas CTF 2019** 2nd place - <span style="color:#4ea1d3">AntiPPP
   - **UTC-CTF Teaser 2019** <span style="color:#e85a71">1st place</span> - <span style="color:#4ea1d3">Defenit
-  - **CCE Final 2019** 10th place - <span style="color:#4ea1d3">Defenit
+  - <span style="color:#454552">**CCE Final 2019**</span> 10th place - <span style="color:#4ea1d3">Defenit
   - **SECCON Online CTF 2019** 10th place - <span style="color:#4ea1d3">SEDefenit
   - **Rooters CTF 2019** <span style="color:#e85a71">1st place </span>- <span style="color:#4ea1d3">Defenit
-  - **CCE Quals 2019** 10th place - <span style="color:#4ea1d3">Defenit
+  - <span style="color:#454552">**CCE Quals 2019**</span> 10th place - <span style="color:#4ea1d3">Defenit
   - **Holy Shield CTF 2019** 2nd place - <span style="color:#4ea1d3">Defenit
   - **SSTF Open CTF 2019** 2nd place - <span style="color:#4ea1d3">Defenit
   - **SUA CTF 2019** 2nd place - <span style="color:#4ea1d3">Defenit
