@@ -20,6 +20,7 @@ permalink: /about/
 
 ## 🏆Awards
 - 2020
+  - <span style="color:#454552">**TokyoWesterns CTF 6th 2020**</span> <span style="color:#e85a71">1st place</span> - <span style="color:#4ea1d3">D0G$</span>
   - InterKosenCTF 2020 2nd place - <span style="color:#4ea1d3">Defenit</span>
   - Hackers Playground 2020 4th place - <span style="color:#4ea1d3">Haim&Defenit</span>
   - <span style="color:#454552">**DEF CON CTF Final 2020**</span> 12th place - <span style="color:#4ea1d3">koreanbadass</span>
