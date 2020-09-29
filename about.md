@@ -20,6 +20,8 @@ permalink: /about/
 
 ## 🏆Awards
 - 2020
+  - Dreamhack CTF Pre-Season Round #1 <span style="color:#e85a71">1st place</span> - <span style="color:#4ea1d3">JSec
+  - <span style="color:#454552">**CCE Quals 2020**</span> <span style="color:#e85a71">3rd place</span> - <span style="color:#4ea1d3">Haim</span>
   - <span style="color:#454552">**TokyoWesterns CTF 6th 2020**</span> <span style="color:#e85a71">1st place</span> - <span style="color:#4ea1d3">D0G$</span>
   - InterKosenCTF 2020 2nd place - <span style="color:#4ea1d3">Defenit</span>
   - Hackers Playground 2020 4th place - <span style="color:#4ea1d3">Haim&Defenit</span>
