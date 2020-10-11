@@ -20,6 +20,8 @@ permalink: /about/
 
 ## 🏆Awards
 - 2020
+  - <span style="color:#454552">**SECCON OnlineCTF 2020**</span> <span style="color:#e85a71">1st place</span> - <span style="color:#4ea1d3">HangulSarang</span>
+  - TeamH4C CTF <span style="color:#e85a71">1st place</span> - <span style="color:#4ea1d3">JSec
   - Dreamhack CTF Pre-Season Round #1 <span style="color:#e85a71">1st place</span> - <span style="color:#4ea1d3">JSec
   - <span style="color:#454552">**CCE Quals 2020**</span> 3rd place - <span style="color:#4ea1d3">Haim</span>
   - <span style="color:#454552">**TokyoWesterns CTF 6th 2020**</span> <span style="color:#e85a71">1st place</span> - <span style="color:#4ea1d3">D0G$</span>
