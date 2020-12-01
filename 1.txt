@@ -1,0 +1,102 @@
+Module                  Size  Used by
+ip6t_rpfilter          12595  1 
+ip6t_REJECT            12625  2 
+nf_reject_ipv6         13717  1 ip6t_REJECT
+ipt_REJECT             12541  2 
+nf_reject_ipv4         13373  1 ipt_REJECT
+xt_conntrack           12760  11 
+ebtable_nat            12807  1 
+ebtable_broute         12731  1 
+bridge                151336  1 ebtable_broute
+stp                    12976  1 bridge
+llc                    14552  2 stp,bridge
+ip6table_nat           12864  1 
+nf_conntrack_ipv6      18935  7 
+nf_defrag_ipv6         35104  1 nf_conntrack_ipv6
+nf_nat_ipv6            14131  1 ip6table_nat
+ip6table_mangle        12700  1 
+ip6table_security      12710  1 
+ip6table_raw           12683  1 
+iptable_nat            12875  1 
+nf_conntrack_ipv4      15053  6 
+nf_defrag_ipv4         12729  1 nf_conntrack_ipv4
+nf_nat_ipv4            14115  1 iptable_nat
+nf_nat                 26583  2 nf_nat_ipv4,nf_nat_ipv6
+iptable_mangle         12695  1 
+iptable_security       12705  1 
+iptable_raw            12678  1 
+nf_conntrack          139264  6 nf_nat,nf_nat_ipv4,nf_nat_ipv6,xt_conntrack,nf_conntrack_ipv4,nf_conntrack_ipv6
+ip_set                 45799  0 
+nfnetlink              14519  1 ip_set
+ebtable_filter         12827  1 
+ebtables               35009  3 ebtable_broute,ebtable_nat,ebtable_filter
+ip6table_filter        12815  1 
+ip6_tables             26912  5 ip6table_filter,ip6table_mangle,ip6table_security,ip6table_nat,ip6table_raw
+iptable_filter         12810  1 
+snd_seq_midi           13565  0 
+snd_seq_midi_event     14597  1 snd_seq_midi
+vmw_vsock_vmci_transport    30577  1 
+vsock                  36367  2 vmw_vsock_vmci_transport
+crc32_pclmul           13133  0 
+ghash_clmulni_intel    13273  0 
+snd_ens1371            25076  0 
+ppdev                  17671  0 
+snd_rawmidi            31553  2 snd_ens1371,snd_seq_midi
+snd_ac97_codec        130479  1 snd_ens1371
+ac97_bus               12730  1 snd_ac97_codec
+snd_seq                62774  2 snd_seq_midi_event,snd_seq_midi
+snd_seq_device         14356  3 snd_seq,snd_rawmidi,snd_seq_midi
+aesni_intel           189456  0 
+snd_pcm               101339  2 snd_ac97_codec,snd_ens1371
+lrw                    13286  1 aesni_intel
+gf128mul               15139  1 lrw
+glue_helper            13990  1 aesni_intel
+ablk_helper            13597  1 aesni_intel
+cryptd                 21190  3 ghash_clmulni_intel,aesni_intel,ablk_helper
+vmw_balloon            18094  0 
+sg                     40719  0 
+pcspkr                 12718  0 
+joydev                 17389  0 
+snd_timer              34110  2 snd_pcm,snd_seq
+snd                    83987  7 snd_ac97_codec,snd_timer,snd_pcm,snd_seq,snd_rawmidi,snd_ens1371,snd_seq_device
+soundcore              15047  1 snd
+parport_pc             28205  0 
+parport                46395  2 ppdev,parport_pc
+vmw_vmci               67168  1 vmw_vsock_vmci_transport
+i2c_piix4              22401  0 
+ip_tables              27126  5 iptable_security,iptable_filter,iptable_mangle,iptable_nat,iptable_raw
+xfs                   997681  2 
+libcrc32c              12644  3 xfs,nf_nat,nf_conntrack
+sr_mod                 22416  0 
+cdrom                  42600  1 sr_mod
+ata_generic            12923  0 
+pata_acpi              13053  0 
+sd_mod                 46281  3 
+crc_t10dif             12912  1 sd_mod
+crct10dif_generic      12647  0 
+vmwgfx                291993  1 
+drm_kms_helper        186531  1 vmwgfx
+syscopyarea            12529  1 drm_kms_helper
+sysfillrect            12701  1 drm_kms_helper
+sysimgblt              12640  1 drm_kms_helper
+fb_sys_fops            12703  1 drm_kms_helper
+ttm                    96673  1 vmwgfx
+crct10dif_pclmul       14307  1 
+crct10dif_common       12595  3 crct10dif_pclmul,crct10dif_generic,crc_t10dif
+ata_piix               35052  0 
+crc32c_intel           22094  1 
+drm                   456166  4 ttm,drm_kms_helper,vmwgfx
+libata                243094  3 pata_acpi,ata_generic,ata_piix
+nfit                   55639  0 
+mptspi                 22673  2 
+serio_raw              13434  0 
+scsi_transport_spi     30732  1 mptspi
+e1000                 137624  0 
+mptscsih               40150  1 mptspi
+libnvdimm             159680  1 nfit
+mptbase               106036  2 mptspi,mptscsih
+drm_panel_orientation_quirks    17180  1 drm
+dm_mirror              22289  0 
+dm_region_hash         20813  1 dm_mirror
+dm_log                 18411  2 dm_region_hash,dm_mirror
+dm_mod                124501  8 dm_log,dm_mirror
