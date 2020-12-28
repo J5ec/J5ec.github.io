@@ -20,7 +20,7 @@ permalink: /about/
 
 ## 🏆Awards
 - 2020
-  - 2020 Christmas CTF 4rd place - <span style="color:#4ea1d3">Haim</span> (400,000 KRW)
+  - 2020 Christmas CTF 4th place - <span style="color:#4ea1d3">Haim</span> (400,000 KRW)
   - <span style="color:#454552">**Hackceler8 2020**</span> 2nd place - <span style="color:#4ea1d3">I Use Bing</span> (2000 USD)
   - <span style="color:#454552">**SECCON OnlineCTF 2020**</span> <span style="color:#e85a71">1st place</span> - <span style="color:#4ea1d3">HangulSarang</span>
   - TeamH4C CTF <span style="color:#e85a71">1st place</span> - <span style="color:#4ea1d3">JSec</span> (100,000 KRW)
