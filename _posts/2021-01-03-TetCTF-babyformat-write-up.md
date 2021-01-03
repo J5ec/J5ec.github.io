@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TetCTF 2021 babyformat writeup
+title: TetCTF 2021 babyformat write-up
 categories: ctf-write-up
 tags: [ctf]
 ---
@@ -9,9 +9,6 @@ tags: [ctf]
 ## babyformat
 
 삽질을 굉장히 많이한 문제이다. 
-
-
-
 취약점은 여기서 발생한다.
 
 ```c
@@ -46,27 +43,17 @@ int __fastcall sub_4009CB(__int64 a1)
 }
 ```
 
-위 코드를 보면 fsb가 발생한 이후 `fclose`를 호출한다. 그리고 이때 stream은 스택 내에 저장되어 있다.
-
-따라서 스택을 가리키는 포인터를 이용하여 stream이 저장되어 있는 스택을 가리키게 하고
-
-이 stream을 가리키는 스택에 접근하여 stream 내의 vtable을 가리키게 하고 stream의 vtable에 접근하여
-
-원하는 주소에 접근 하도록 할 수 있다. (트리플 스테이지..?)
+위 코드를 보면 fsb가 발생한 이후 `fclose`를 호출한다. 그리고 이때 stream은 스택 내에 저장되어 있다. 따라서 스택을 가리키는 포인터를 이용하여 stream이 저장되어 있는 스택을 가리키게 하고 이 stream을 가리키는 스택에 접근하여 stream 내의 vtable을 가리키게 하고 stream의 vtable에 접근하여원하는 주소에 접근 하도록 할 수 있다. (트리플 스테이지..?)
 
 롸업쓰면서 다시 생각해보니 더 쉽게 풀 수 있는 방법도 있는거 같은데 일단 푼 대로 써야겠다..
 
 
 
-pie가 안걸려있고 input은 bss 영역에 들어가니 `fake vtable`도 원하는대로 만들 수 있다.
-
-이제 어떤 주소로 이동할 지 결정을 해야한다.  나는 **0x4009cb** 주소로 이동했다.
+pie가 안걸려있고 input은 bss 영역에 들어가니 `fake vtable`도 원하는대로 만들 수 있다. 이제 어떤 주소로 이동할 지 결정을 해야한다.  나는 **0x4009cb** 주소로 이동했다.
 
 
 
-fprintf를 호출하기 이전에, printf로 a2를 출력해주는 루틴이 존재하는데,
-
-0x4009cb부터 실행하면 a2는 bss 영역이 아니게 되어서  leak이 가능한 구조가 된다.
+fprintf를 호출하기 이전에, printf로 a2를 출력해주는 루틴이 존재하는데, 0x4009cb부터 실행하면 a2는 bss 영역이 아니게 되어서  leak이 가능한 구조가 된다.
 
 
 
@@ -79,7 +66,6 @@ fprintf를 호출하기 이전에, printf로 a2를 출력해주는 루틴이 존
 
 
 요약 (Summary)
-
 1. Using fsb, modify the vtable (rip should be **0x4009cb**)
    - (1) Create a pointer to point to the stack address where the stream is stored.
    - (2) Modify the 1 byte of the stream address to point to vtable.

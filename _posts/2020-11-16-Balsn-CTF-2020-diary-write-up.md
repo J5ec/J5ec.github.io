@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Balsn CTF 2020 diary write up
+title: Balsn CTF 2020 diary write-up
 categories: ctf-write-up
 tag: [heap, ctf]
 ---

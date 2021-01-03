@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TetCTF 2021 warmup writeup
+title: TetCTF 2021 warmup write-up
 categories: ctf-write-up
 tags: [ctf]
 ---
@@ -8,21 +8,15 @@ tags: [ctf]
 
 ## warmup
 
-현재 올라와있는 write-up과 주변 지인이 푼 방법을 들었을 때 아마 이 풀이는 `unintended solution` 일 것이다.
-
-처음에 팀원이 이 문제를 보고 있다고해서 다른 문제를 보고있었는데 fsb가 발생하는 부분이 있다고 해서 그 부분만 이용해서 풀었다.
+현재 올라와있는 write-up과 주변 지인이 푼 방법을 들었을 때 아마 이 풀이는 `unintended solution` 일 것이다. 처음에 팀원이 이 문제를 보고 있다고해서 다른 문제를 보고있었는데 fsb가 발생하는 부분이 있다고 해서 그 부분만 이용해서 풀었다.
 
 
 
-일단 더블스테이지를 이용하여 stack의 ret주소를 main함수로 변경하면서 libc_start_main_ret 주소를 leak한다.
-
-이 과정에서 약간의 스택 주소에 대한 브포가 필요하다.
+일단 더블스테이지를 이용하여 stack의 ret주소를 main함수로 변경하면서 libc_start_main_ret 주소를 leak한다. 이 과정에서 약간의 스택 주소에 대한 브포가 필요하다.
 
 
 
-그 이후 스택을 가리키는 포인터 2개를 이용하여 ret 주소를 one_gadget 주소로 수정하면 된다.
-
-이때 주의할 점은 스택을 가리키는 포인터를 이용할 경우 SFP가 변조되어 ret를 수정하더라도 다른 주소로 이동하게 된다.
+그 이후 스택을 가리키는 포인터 2개를 이용하여 ret 주소를 one_gadget 주소로 수정하면 된다. 이때 주의할 점은 스택을 가리키는 포인터를 이용할 경우 SFP가 변조되어 ret를 수정하더라도 다른 주소로 이동하게 된다.
 
 따라서 SFP를 변조하여 ret를 수정한 이후에 다시 SFP를 원래 값으로 복원해주어야 하며 이 과정에서 약간의 브포가 필요하다.
 
@@ -33,7 +27,6 @@ tags: [ctf]
 
 
 요약 (Summary)
-
 1. Using `double staged fsb`, change the return address of the stack to **main** and leak the **libc_start_main_ret** address.
    - a little brute forcing
 2. Using `double staged fsb`, change the return address of the stack to **one_gadget**
