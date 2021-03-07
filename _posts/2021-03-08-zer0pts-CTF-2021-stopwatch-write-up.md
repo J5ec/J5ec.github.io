@@ -8,18 +8,21 @@ tags: [ctf]
 
 ## stopwatch (196pts, 22solves)
 
+---
+
 ### Summary
 
 1. `scanf("%s")`
 2. Using + or - when calling scanf results in an `uninitialized variable`. (canary leak)
 
 
+---
 
 되게 신박했던 문제였다.  `scanf("%s")`를 사용하기 때문에 bof가 발생하는데 문제는 canary를 모른다는 것이었다.
 
 
 
-근데 하나 특이한게 사용자에게 scanf로 소수를 입력받고 이를 출력해주는 루틴이 있었다. scanf로 숫자를 입력받을 때 +나 -를 넣으면 입력을 받지 않기 때문에 uninitialized 취약점이 발생한다.
+근데 하나 특이한게 사용자에게 scanf로 소수를 입력받고 이를 출력해주는 루틴이 있었다. scanf로 숫자를 입력받을 때 +나 -를 넣으면 입력을 받지 않기 때문에 `uninitialized` 취약점이 발생한다.
 
 
 

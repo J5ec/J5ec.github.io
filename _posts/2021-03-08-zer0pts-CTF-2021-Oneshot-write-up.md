@@ -8,6 +8,8 @@ tags: [ctf]
 
 ## OneShot (192pts, 23solves)
 
+---
+
 ### Summary
 
 1. calloc(-1, ...) is return 0
@@ -17,7 +19,7 @@ tags: [ctf]
 5. alarm_got → main+1
 6. puts_got → one_gadget
 
-
+---
 
 정말 힘들게 풀었다. 이게 이렇게 푸는게 맞는건가란 생각을 되게 많이했다. 진짜 이 문제를 풀기 위해 별의 별 시도를 다 해봤지만 너무 길어지기에 생략한다.
 
