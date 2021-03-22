@@ -12,9 +12,9 @@ tags: [ctf]
 ---
 
 
-# kill-shot (810pts, 24solves)
+## kill-shot (810pts, 24solves)
 
-## Summary
+### Summary
 
 1. Using fsb, leak pie_base and libc_base and stack_addr
 2. malloc_hook → gets
@@ -90,9 +90,9 @@ p.interactive()
 
 
 
-# death note (896pts, 18solves)
+## death note (896pts, 18solves)
 
-## Summary
+### Summary
 
 1. Free the heap 8 times and libc leak
 2. Using oob, Trigger the heap overflow
@@ -164,9 +164,9 @@ p.interactive()
 
 
 
-# success (957pts, 12solves)
+## success (957pts, 12solves)
 
-## Summary
+### Summary
 
 1. If you enter an invalid name, you can leak the pie address and libc address in the stack.
 2. Filling the every value will result in a 4 byte overflow and can overwrite fd.
