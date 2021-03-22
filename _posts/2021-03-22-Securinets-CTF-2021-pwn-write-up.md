@@ -8,15 +8,11 @@ tags: [ctf]
 주말에 Securinets CTF를 잠깐 참여했다. 2~3시간 정도밖에 문제를 안봐서 다 풀지는 못했는데, 나름 재미있었다.
 
 
-[kill-shot](#kill-shot)
-[death-note](#death-note)
-[success](#success)
-
 
 ---
 
 
-# kill-shot
+# kill-shot (810pts, 24solves)
 
 ## Summary
 
