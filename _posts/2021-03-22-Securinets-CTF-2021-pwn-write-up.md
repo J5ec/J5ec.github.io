@@ -16,7 +16,7 @@ tags: [ctf]
 ---
 
 
-# kill-shot (810pts, 24solves)
+# kill-shot
 
 ## Summary
 
