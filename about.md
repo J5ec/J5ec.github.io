@@ -19,6 +19,8 @@ permalink: /about/
 ---
 
 ## 🏆Awards
+- 2021
+  - 2021 Hspace CTF The Zero <span style="color:#e85a71">1st place</span> - <span style="color:#4ea1d3">JSec</span> (iPad 7th generation)
 - 2020
   - 2020 Christmas CTF 4th place - <span style="color:#4ea1d3">Haim</span> (400,000 KRW)
   - <span style="color:#454552">**Hackceler8 2020**</span> 2nd place - <span style="color:#4ea1d3">I Use Bing</span> (2000 USD)
