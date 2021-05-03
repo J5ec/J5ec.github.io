@@ -80,7 +80,7 @@ We can call any syscall by leaking only 0x10xxxxxxxxxx region.
 
 
 
-이제 저 주소를 어떻게 알아내냐인데, 내가 첫 번째 떠올린 아이디어는 munmap을 이용한 브루트포싱이다. 정상적인 주소를 munmap 했을 땐 0이 리턴되고 비정상적인 경우 음수를 리턴하는 루틴을 사용할려했는데, 비정상적인 주소를 munmap 했을 때도 0을 반환하는 현상이 발생하여 다른 방법을 생각했다.
+이제 저 주소를 어떻게 알아내냐인데, 내가 처음으로 떠올린 아이디어는 munmap을 이용한 브루트포싱이다. 정상적인 주소를 munmap 했을 땐 0이 리턴되고 비정상적인 경우 음수를 리턴하는 루틴을 사용할려했는데, 비정상적인 주소를 munmap 했을 때도 0을 반환하는 현상이 발생하여 다른 방법을 생각했다.
 
 My first idea is brute-forcing using a munmap. I expected to return 0 when I put in a normal address and negative when I put in an abnormal address. But in any case, it returned zero.
 
