@@ -20,7 +20,7 @@ permalink: /about/
 
 ## 🏆Awards
 - 2021
-  - Hspace Open CTF <span style="color:#e85a71">2nd place</span> - <span style="color:#4ea1d3">JSec</span> (30,000 KRW)
+  - Hspace Open CTF 2nd place - <span style="color:#4ea1d3">JSec</span> (30,000 KRW)
   - <span style="color:#454552">**CCE Final 2021**</span> 4th place - <span style="color:#4ea1d3">Haim</span> (4,000,000 KRW)
   - <span style="color:#454552">**Whitehat Contest Final 2021**</span> 7th place - <span style="color:#4ea1d3">Haim</span>
   - <span style="color:#454552">**CCE Quals 2021**</span> 10th place - <span style="color:#4ea1d3">Haim</span>
