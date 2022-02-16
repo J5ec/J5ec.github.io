@@ -212,3 +212,16 @@ pwndbg의 heap 커맨드를 사용해보면 할당되어 있는 힙을 볼 수 �
 
 ![image](https://user-images.githubusercontent.com/43925259/154182900-dcd52736-90c9-42f4-a234-12de07bac7d2.png)
 
+다음과 같이 cli_pcre_malloc, cli_pcre_free와 같은 이름의 함수가 힙의 여러곳에 할당된 채로 존재한다. 이 포인터를 임의 값으로 바꾸고 프로그램을 실행해보면 다음과 같이 동작한다.
+
+![image](https://user-images.githubusercontent.com/43925259/154028251-867d799e-4c16-4eca-863d-5ee4e606c348.png)
+
+즉 cli_pcre_malloc 부분에 /bin/sh 문자열을, cli_pcre_free 부분에 system@plt를 삽입하면 셸을 얻을 수 있다.
+
+
+
+?? 하지만 문제점은 도커 내부에서 실행시킬 때와 xinetd로 프로그램을 실행할 때 힙 레이아웃이 조금씩 변하기 때문에 정확한 offset을 구하기 위해선 주어진 start.sh를 실행하여 xinetd로 프로그램을 실행시킨 뒤 attach하여 디버깅을 해야 remote 익스플로잇을 한 번에 성공시킬 수 있다.
+
+
+
+수 많은 함수 포인터 중 하나는 탑 청크와 바로 위에 위치해서 이를 사용하기로 했다. ddst를 연산하는 `libclamav.so.9_base + 0x107efe`에 브레이크 포인트를 설정하고 그때 힙 주소와 탑 청크 바로 위의 함수 포인터의 거리를 계산해주면 된다.
