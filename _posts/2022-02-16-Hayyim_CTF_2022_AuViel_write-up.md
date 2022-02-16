@@ -248,7 +248,7 @@ It can be solved by overwriting cli_pcre_malloc with "/bin/sh" and overwriting c
 
 However, the problem is that the heap layout changes slightly when running the program in the docker and xinetd. So, in order to find the correct offset, you need to run the program with xinetd using start.sh and then attach and debug to succeed the remote exploit at once.
 
-One of the many function pointers is located directly above the top chunk, so I decided to use it. Breakpoints were set at libclamav.so.9_base + 0x107efe and the distance between the current heap address and the function pointer was calculated.
+One of the many function pointers is located directly above the top chunk, so I decided to use it. I set the breakpoint to `libclamav.so.9_base + 0x107efe` and I calculated the distance between the heap address and the function pointer.
 
 I wrote the following code.
 
@@ -291,6 +291,9 @@ pwndbg> x/2gx 0x30150b0
 익스플로잇 코드는 다음과 같다.
 
 I can write 10 byte. it's also exploitable with one file, but it's simpler to use two files. I wrote /bin/sh with the first file and system@plt with the second file. Be careful about offset and xor when you are doing Exploit.
+
+The final code is as follows.
+
 
 ```python
 from pwn import *
