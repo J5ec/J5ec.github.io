@@ -12,11 +12,12 @@ tag: [ctf]
 
 이 문제는 real world에서 안티바이러스를 분석해보다가 아이디어가 떠올라서 만든 문제이다. 최대한 많은 사람들이 풀었으면 하는 마음에 리눅스에서 문제를 냈고, 최대한 쉽게 풀릴 수 있도록 난이도를 낮추며 노력을 했다. 따라서 실제로 안티바이러스를 분석했을 때와 비교했을 때 많은 과정이 생략되었고 단순히 oob를 찾고 vtable을 덮으면 끝나는 문제로 만들게 되었다. 하지만 안티바이러스라는 이유로 대부분의 사람들은 이 문제를 제일 마지막에 시도한 거 같고 결국 한 팀밖에 풀지 못했다.
 
-ptr-yudai의 write-up은 여기에 있다.
+I made this Challenge an experience of analyzing the anti-virus in the real world. I chose the Linux environment because I wanted many people to solve it. Also, I tried to lower the difficulty level. Therefore, many processes have been omitted compared to when I actually analyzed the anti-virus, and it can be solved by simply finding the oob and overwriting the vtable. However, it seems that many people have not tried it because it is an anti-virus. So only one team solved it.
+
+write-up of ptr-yudai.
 - https://ptr-yudai.hatenablog.com/entry/2022/02/13/122744
 
-주어진 diff 파일은 다음과 같다.
-
+The patched code is as follows.
 ```diff
 --- clamav/clamscan/clamscan.c   2022-01-11 09:35:04.000000000 +0900
 +++ clamav-ctf/clamscan/clamscan.c   2022-01-25 17:32:18.347993027 +0900
@@ -77,9 +78,11 @@ diff -ru clamav/libclamav/petite.c clamav-ctf/libclamav/petite.c
 
 익스플로잇을 쉽게 하기 위해서 gift 함수를 통해 system 함수를 넣어주었다. 그리고 petite.c에서 조건 검사를 3개정도를 삭제하였다. 따라서 삭제된 부분들 주변을 오디팅하면 버그를 찾을 수 있다.
 
+A system function exists in the gift function. And I deleted three checks. Therefore, if you audit around here, you can find a bug.
 
 
-`CLI_ISCONTAINED`는 other.h에 정의되어 있는데 다음과 같이 동작한다.
+
+`CLI_ISCONTAINED` is defined in other.h 
 
 ```c++
 #define CLI_ISCONTAINED(bb, bb_size, sb, sb_size)                            \
@@ -93,16 +96,18 @@ diff -ru clamav/libclamav/petite.c clamav-ctf/libclamav/petite.c
 
 
 
-매크로의 이름을 보면 어떤 기능 기능을 하는지 쉽게 유추할 수 있다.
+매크로의 이름을 보면 어떤 기능을 하는지 쉽게 유추할 수 있다.
+
+Looking at the name of the macro, we can guess what function it is.
 
 ![image](https://user-images.githubusercontent.com/43925259/154014297-0f24c108-db0f-436a-a4ef-a5fbc698f5a6.png)
 
 이 그림 처럼 sb가 bb의 영역을 벗어나는지 검사하는 코드이다. 이 검사가 사라졌기 때문에 3번째 인자인 ssrc와 ddst는 저 범위를 벗어날 수 있다는 점을 주목해야 한다.
 
+As shown in this picture, it is a code that checks whether sb is out of the area of bb. Since this check has been removed, ssrc and ddst can be out of bound.
 
 
-취약한 부분은 다음과 같다.
-
+Look at the code below.
 ```c
 [1] ssrc = adjbuf + srva;
 [2] ddst = adjbuf + thisrva;
@@ -115,7 +120,7 @@ diff -ru clamav/libclamav/petite.c clamav-ctf/libclamav/petite.c
 }*/
 
 size--;
-[3] *ddst++   = *ssrc++; /* eheh u C gurus gotta luv these monsters :P */
+*ddst++   = *ssrc++; /* eheh u C gurus gotta luv these monsters :P */
 backbytes = 0;
 oldback   = 0;
 
@@ -131,24 +136,23 @@ while (size > 0) {
             free(usects);
             return 1;
         }*/
-[4]     *ddst++ = (char)((*ssrc++) ^ (size & 0xff));
+[3]     *ddst++ = (char)((*ssrc++) ^ (size & 0xff));
         size--;
     } else {
       	...
 ```
 
-[3]에서 ddst에 접근하여 ssrc에 값을 넣는다. 그리고 [4]에서 ddst에 ssrc의 값과 size 값으로 xor된 값을 넣고 이를 반복한다.
-
-ddst를 조작할 수 있고 ssrc에 컨트롤 가능한 데이터가 포함된다면 oob write 취약점이 발생하게 된다.
-
-
+[3]에서 ddst에 ssrc의 값과 size 값으로 xor된 값을 넣고 이를 반복한다. ddst를 조작할 수 있고 ssrc에 컨트롤 가능한 데이터가 포함된다면 oob write 취약점이 발생하게 된다.
 
 [1]과 [2]에서 ssrc와 ddst의 값이 결정되므로 이 부분을 ida에서 찾아서 브레이크 포인트를 설정한 뒤 디버깅해보면 된다.
 
+[3], xored values (size ^ ssrc) are moved to ddst and repeated. If ddst can be manipulated and ssrc contains controllable data, the oob write vulnerability can be used.
+
+[1] and [2], values of ssrc and ddst are determined. I find this part in ida and set up a breakpoint and debug it.
 
 
-우선 디버깅을 위하여 테스트 파일을 생성해야한다.
 
+The test file is created for debugging.
 ```c
 #include <stdio.h>
 
@@ -160,13 +164,18 @@ int main(void) {
 
 이렇게 코드를 작성한 뒤 32bit로 컴파일 하여 petite packer를 사용하면 6407바이트가 된다.
 
-
-
 ida를 통해서 보면 이 부분에서 ssrc와 ddst를 설정하는 것을 알 수 있다. 따라서 0x107efb에 브레이크 포인트를 설정하여 디버깅하면 된다.
+
+After I write the code, I compile it to 32bit and use the petite packer. The file size 6407 bytes.
+
+Using ida, I see that ssrc and ddst are set in this part. Therefore, I set a breakpoint at 0x107efb and debug it.
+
 
 ![image](https://user-images.githubusercontent.com/43925259/154028400-36c0eb60-64a4-44ef-9e84-9cfc21cde692.png)
 
-ssrc는 r8 + rdi로 구성되고 이때 주소를 확인해보면 다음과 같다.
+ssrc는 r8+rdi로 구성되고 이때 주소를 확인해보면 다음과 같다.
+
+ssrc is made of r8+rdi and has the following values.
 
 ```
 pwndbg> x/10gx 0x2397032
@@ -181,53 +190,68 @@ pwndbg> x/10gx 0x2397032
 
 이를 hxd에서 검색해보면 이부분임을 알 수 있다.
 
+This value can be found in hxd.
+
 ![image](https://user-images.githubusercontent.com/43925259/154023043-4d487a0c-26a5-43e2-b34e-62c1568cfc79.png)
 
 
 
 나중에 이 부분을 참조해서 xor 한 뒤 값을 삽입하기 때문에 이부분에 [원하는 데이터] ^ [size & ff] 한 값을 넣어주면 된다.
 
+Later, I insert `[my_data] ^ [size & 0xff]` into this part.
 
 
-ddst의 경우 다음과 같이 구성된다.
+
+ddst is as follows.
 
 ![image](https://user-images.githubusercontent.com/43925259/154023623-2be3f240-b196-40b6-89a1-bcc3c13f40da.png)
 
 rdi는 힙주소이며 rax를 더해서 만들고 있는데 0x6074를 수정할 수 있다면 oob 버그를 트리거할 수 있다. 마찬가지로 저 부분이 바이너리 내에 존재하는지 검색해보면 된다. 그러면 다음과 같이 딱 한 곳에서 검색이 된다.
 
+rdi is heap address. If I can modify 0x6074, I can trigger the oob bug. When I searched that part, I saw only one.
+
 ![image](https://user-images.githubusercontent.com/43925259/154023932-ad51afc2-eb73-439c-913d-86a274ce4c9f.png)
 
 이를 통하여 rdi 레지스터에 적힌 힙을 기준으로 원하는 offset에 원하는 데이터를 넣을 수 있게 된다.
 
-
-
 주로 CTF에서의 heap 익스플로잇은 해제되어 있는 heap을 사용하는 경우가 많다. 하지만 이 방법은 리얼월드에서 사용하기 쉽지 않다. 제일 무난한 방법은 현재 할당되어 있는 힙들을 찾고 그 중 함수 포인터가 존재하는 지 보는 것이다.
 
-
-
 pwndbg의 heap 커맨드를 사용해보면 할당되어 있는 힙을 볼 수 있다.
+
+Heap exploits in CTF often use freed heaps, but this method is not easy to use in realworld. The easy way is to find the currently allocated heap to see if there is a function pointer.
+
+With a `heap` command in pwndbg, I can see the allocated heap.
 
 ![image](https://user-images.githubusercontent.com/43925259/154027435-2fa5bc40-3d47-409d-9acd-ce94ff30fc55.png)
 
 이렇게 할당되어 있는 힙들을 몇개 보다보면 함수 포인터가 여러개 보인다.
 
+There are many function pointers in heaps.
+
 ![image](https://user-images.githubusercontent.com/43925259/154182900-dcd52736-90c9-42f4-a234-12de07bac7d2.png)
 
 다음과 같이 cli_pcre_malloc, cli_pcre_free와 같은 이름의 함수가 힙의 여러곳에 할당된 채로 존재한다. 이 포인터를 임의 값으로 바꾸고 프로그램을 실행해보면 다음과 같이 동작한다.
+
+There are several function pointers named cli_pcre_malloc and cli_pcre_free. The results of overwriting this pointer and running the program are as follows.
 
 ![image](https://user-images.githubusercontent.com/43925259/154028251-867d799e-4c16-4eca-863d-5ee4e606c348.png)
 
 즉 cli_pcre_malloc 부분에 /bin/sh 문자열을, cli_pcre_free 부분에 system@plt를 삽입하면 셸을 얻을 수 있다.
 
-
-
 하지만 문제점은 도커 내부에서 실행시킬 때와 xinetd로 프로그램을 실행할 때 힙 레이아웃이 조금씩 변하기 때문에 정확한 offset을 구하기 위해선 주어진 start.sh를 실행하여 xinetd로 프로그램을 실행시킨 뒤 attach하여 디버깅을 해야 remote 익스플로잇을 한 번에 성공시킬 수 있다.
-
-
 
 수 많은 함수 포인터 중 하나는 탑 청크와 바로 위에 위치해서 이를 사용하기로 했다. ddst를 연산하는 `libclamav.so.9_base + 0x107efe`에 브레이크 포인트를 설정하고 그때 힙 주소와 탑 청크 바로 위의 함수 포인터의 거리를 계산해주면 된다.
 
 다음과 같은 코드를 작성했다.
+
+It can be solved by overwriting cli_pcre_malloc with "/bin/sh" and overwriting cli_pcre_free with system@plt.
+
+However, the problem is that the heap layout changes slightly when running the program in the docker and xinetd. So, in order to find the correct offset, you need to run the program with xinetd using start.sh and then attach and debug to succeed the remote exploit at once.
+
+One of the many function pointers is located directly above the top chunk, so I decided to use it. Breakpoints were set at libclamav.so.9_base + 0x107efe and the distance between the current heap address and the function pointer was calculated.
+
+I wrote the following code.
+
 
 ```python
 from pwn import *
@@ -248,9 +272,9 @@ p.sendlineafter(': ', payload)
 p.interactive()
 ```
 
-
-
 디버깅을 통해 binsh가 위치할 부분과 현재 힙 거리를 연산하여 넣어주었다. 이제 값을 1byte씩 삽입할텐데 몇글자나 삽입 가능한지 보기 위하여 테스트했다.
+
+I ran the program to see how many bytes I could write.
 
 ```
 pwndbg> x/2gx 0x30150b0
@@ -262,13 +286,11 @@ pwndbg> x/2gx 0x30150b0
 0x30150b0:	0x313f2a14130b3500	0x00007fb035c9340c
 ```
 
-
-
 총 10byte가 순차적으로 입력되었다. 파일 하나로 익스플로잇을 하는 방법도 있지만 파일 2개를 가지고 하나는 /bin/sh, 또 하나는 system@plt를 쓰는것이 편할 것이다. 파일을 2개를 넣었을 때의 offset을 확인 한 뒤 xor에 주의하여 익스플로잇을 완성하면 된다.
 
-
-
 익스플로잇 코드는 다음과 같다.
+
+I can write 10 byte. it's also exploitable with one file, but it's simpler to use two files. I wrote /bin/sh with the first file and system@plt with the second file. Be careful about offset and xor when you are doing Exploit.
 
 ```python
 from pwn import *
