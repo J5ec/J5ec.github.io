@@ -19,6 +19,9 @@ permalink: /about/
 ---
 
 ## 🏆Awards
+- 2022
+  - <span style="color:#454552">**CCE Final 2022**</span> advance to the finals - <span style="color:#4ea1d3">iamroot</span>
+  - <span style="color:#454552">**WACON Final 2022**</span> advance to the finals - <span style="color:#4ea1d3">H4EM</span> 
 - 2021
   - Hspace Open CTF 2nd place - <span style="color:#4ea1d3">JSec</span> (30,000 KRW)
   - <span style="color:#454552">**CCE Final 2021**</span> 4th place - <span style="color:#4ea1d3">Haim</span> (4,000,000 KRW)
